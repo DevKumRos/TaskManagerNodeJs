@@ -1,0 +1,19 @@
+{
+  "name": "TaskManagerNodeJs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/newIndex.js",
+    "dev": "nodemon src/newIndex.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.3.16",
+    "validator": "^10.9.0"
+  }
+}
