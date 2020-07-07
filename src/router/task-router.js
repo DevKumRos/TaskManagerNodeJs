@@ -46,7 +46,10 @@ taskRouter.patch('/tasks/:taskId',async (req, res) => {
     const taskBody = req.body;
     console.log("NewIndex Request taskId: "+taskId+", Request Body: "+ taskBody);
     try{
-        const updateTask = await Task.findByIdAndUpdate(taskId, taskBody, {new: true, runValidators:true});
+        const updateTask = await Task.findById(taskId);
+        updates.forEach((update) => updateTask[update] = taskBody[update]);
+        await updateTask.save();
+        //const updateTask = await Task.findByIdAndUpdate(taskId, taskBody, {new: true, runValidators:true});
         return res.status(200).send(updateTask);
     } catch(error) {
         return res.status(404).send("Task not found for given taskId: "+taskId);
